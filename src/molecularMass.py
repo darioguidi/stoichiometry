@@ -1,5 +1,5 @@
 # Calcolo della massa molecolare dati i pesi atomici e i suoi pedici
-def molecular_mass_calculation(stoichiometric_coefficients,atomic_masses):
+def calculate_molecular_mass(stoichiometric_coefficients,atomic_masses):
     """
     I coefficienti stechiometrici e i pesi atomici devono coincidere 
     nelle varie liste come posizione ed ordine quindi
