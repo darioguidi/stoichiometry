@@ -10,6 +10,4 @@ def read_file_chemical_element(filename, element_name):
             if row[0].strip() == element_name:  
                 atomic_masses = float(row[1].strip()) 
                 break  
-    
-
     return atomic_masses
