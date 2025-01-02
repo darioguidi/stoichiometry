@@ -141,7 +141,7 @@ def application():
             confirm_exit = input("Sei sicuro di voler uscire? (S/N): ").strip().upper()
             if confirm_exit == "S":
                 print("Uscita dal programma...")
-                break  # Esci dal ciclo while e termina il programma
+                break 
             else:
                 print("Ritorno al menu principale...")
 

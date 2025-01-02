@@ -1,4 +1,4 @@
-from snippets.fileManagement import read_file_element_symbols, read_file_element_symbols_reversed
+from snippets.fileManagement import read_file_element_symbols, read_file_element_symbols_reversed, read_file_atomic_masses
 
 # Restituisce il simbolo di un elemento
 def generateSymbol(chemical_element):

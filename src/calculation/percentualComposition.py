@@ -1,15 +1,13 @@
 from calculation.molecularMass import calculate_molecular_mass
+from snippets.fileManagement import read_file_atomic_masses
 
 def calculate_percentual_composition(pedici, elements):
     Pa = []
     percentual = []
-    Pm = 0  # Inizializzazione della massa molecolare totale
+    Pm = calculate_molecular_mass(pedici,elements)
 
-    # Calcolo della massa atomica per ogni elemento
     for i in range(len(elements)):
-        massa = calculate_molecular_mass(pedici[i], elements[i])
-        Pa.append(massa)
-        Pm += massa  # Somma alla massa totale
+        Pa.append(float(read_file_atomic_masses(elements[i])))
 
     # Calcolo della percentuale per ogni elemento
     for value in Pa:
