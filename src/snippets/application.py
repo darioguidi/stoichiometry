@@ -1,5 +1,6 @@
 from calculation.molecularMass import calculate_molecular_mass
 from calculation.molarMass import calculate_molar_mass
+from calculation.moliNumber import calculate_moli_number
 
 def application():
     while True:
@@ -62,7 +63,18 @@ def application():
                 print(f"Errore inaspettato: {e}")
 
         elif scelta == "3":
-            print("Hai scelto la funzione 3! Funzione non implementata ancora.")
+            try:
+                element=input("Di che elemento si tratta?\n")
+                weight=float(input("Quanto è la sua quantità in g?\n"))
+                compost=input("Di che composto fa parte?\n")
+                molar_mass=float(input("Ultima domanda, a quanto corissponde la massa molare in g/mol?\n"))
+
+                nmoli=calculate_moli_number(element, weight, compost, molar_mass)
+                print(nmoli)
+            except ValueError:
+                print("Errore: inserire un valore numerico valido!")
+            except Exception as e:
+                print(f"Errore inaspettato: {e}")
         
         elif scelta == "4":
             confirm_exit = input("Sei sicuro di voler uscire? (S/N): ").strip().upper()
