@@ -1,5 +1,5 @@
 from snippets.fileManagement import read_file_chemical_element
-from utils.generateChemicalFormula import generateFormula
+from utils.generateChemicalFormula import generateSymbol
 
 # Calcolo della massa molecolare dati i pesi atomici e i suoi pedici
 def calculate_molecular_mass(stoichiometric_coefficients, chemical_element):
@@ -18,7 +18,7 @@ def calculate_molecular_mass(stoichiometric_coefficients, chemical_element):
     # Loop to get atomic masses and generate formula
     for i in range(len(chemical_element)):
         atomic_masses.append(read_file_chemical_element(chemical_element[i]))
-        formula+=generateFormula(chemical_element[i])+str(int(stoichiometric_coefficients[i]))  # Include stoichiometric coefficients if needed
+        formula+=generateSymbol(chemical_element[i])+str(int(stoichiometric_coefficients[i]))  # Include stoichiometric coefficients if needed
 
     # Calculate molecular mass
     for i in range(len(atomic_masses)):

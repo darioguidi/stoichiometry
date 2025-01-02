@@ -26,7 +26,7 @@ def application():
                     elements.append(inputUtenteNomeElemento)
                 
                 result = calculate_molecular_mass(coef, elements)
-                
+
                 print(f"La massa molecolare è: {result}")
             except ValueError:
                 print("Errore: inserire un valore numerico valido!")
@@ -34,7 +34,23 @@ def application():
                 print(f"Errore inaspettato: {e}")
 
         elif scelta == "2":
-            print("Hai scelto la funzione 2!")
+            try:
+                moli=0
+                sample_weight = float(input("Inserisci il peso del campione (in grammi):\n"))
+                chemical_element = input("Inserisci il nome dell'elemento chimico:\n")
+
+                if len(chemical_element)<2:
+                    chemical_element=
+                
+                # Chiamata alla funzione per calcolare il numero di moli
+                moli = calculate_molar_mass(sample_weight, chemical_element)
+                
+                print(f"Il numero di moli è: {moli} x 10^-2")
+            except ValueError:
+                print("Errore: inserire un valore numerico valido per il peso del campione!")
+            except Exception as e:
+                print(f"Errore inaspettato: {e}")
+
         elif scelta == "3":
             print("Hai scelto la funzione 3!")
         elif scelta == "4":
