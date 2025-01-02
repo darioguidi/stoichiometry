@@ -2,7 +2,7 @@ from csv import reader, DictReader
 
 
 # Funzione che legge il file e restituisce i Pesi Atomici (Pa)
-def read_file_chemical_element(element_name):
+def read_file_atomic_masses(element_name):
     atomic_masses = None  
     FILENAME = "data/chemical_element.txt"
 
@@ -43,23 +43,23 @@ def read_file_element_symbols(element_name):
     return symbols
 
 
-def read_file_element_symbols_reversed(chemical_symbol):
-    # File containing element data
-    FILENAME = "data/element_symbols.txt"
-    
+def read_file_element_symbols_reversed(symbol):
+    name = None  
+    FILENAME = "data/element_symbol_reversed.txt"
+
     try:
         with open(FILENAME, "r") as infile:
             csvReader = reader(infile)
             for row in csvReader:
-                row = row[0].split(":")  # Split by colon
-                if len(row) == 2:  # Ensure the row contains the expected format
-                    name, symbol = row[0].strip(), row[1].strip()  # Name and symbol are split
-                    if symbol == chemical_symbol:  # If the symbol matches, return the name
-                        return name
+                row = row[0].split(":")  
+                if len(row) == 2 and row[0].strip() == symbol:  
+                    name = row[1].strip()
+                    break
     except FileNotFoundError:
         print(f"File {FILENAME} not found.")
     except Exception as e:
         print(f"An error occurred: {e}")
     
-    # If the symbol is not found, return an appropriate message
-    return "Unknown Element"
+    return name
+
+

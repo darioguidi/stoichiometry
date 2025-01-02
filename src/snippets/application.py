@@ -39,7 +39,14 @@ def application():
         elif scelta == "2":
             try:
                 moli = 0
-                sample_weight = float(input("Inserisci il peso del campione (in grammi):\n"))
+                sample_weight = input("Inserisci il peso del campione (in grammi):\n")
+
+                # Gestisci il separatore decimale in caso di virgola
+                sample_weight = sample_weight.replace(",", ".")
+                
+                # Prova a convertire il valore in float
+                sample_weight = float(sample_weight)
+                
                 chemical_element = input("Inserisci il nome dell'elemento chimico:\n")
 
                 # Chiamata alla funzione per calcolare il numero di moli
