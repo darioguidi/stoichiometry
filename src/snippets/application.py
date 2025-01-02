@@ -2,6 +2,7 @@ from calculation.molecularMass import calculate_molecular_mass
 from calculation.molarMass import calculate_molar_mass
 from calculation.moliNumber import calculate_moli_number
 from calculation.chemicalComposition import calculate_chemical_composition, calculate_sperimental_chemical_composition
+from calculation.percentualComposition import calculate_percentual_composition
 
 def application():
     while True:
@@ -11,7 +12,8 @@ def application():
         print("3. Calcolo numero di moli di un elemento, dato il peso in g, e la massa molare del composto")
         print("4. Data la composizione in percentuale di un composto, determinare la formula minima")
         print("5. Data la composizione in percentuale di un composto, determinare la formula minima, riferendoci ad un precedente calcolo sperimentale")
-        print("4. Uscita")
+        print("6. Calcolo composizione percentuale data formula minima")
+        print("7. Uscita")
         
         # Prendi la scelta dell'utente
         scelta = input("Scegli un'opzione (1-4):\n")
@@ -113,7 +115,29 @@ def application():
             except Exception as e:
                 print(e)
 
-        elif scelta == "8":
+        elif scelta=="6":
+            try:
+                elements = []
+                pedici = []
+                inputUtente = int(input("Da quanti elementi è composto il tuo composto?\n"))
+
+                for i in range(inputUtente):
+                    inputElement = input("Inserisci elemento\n")
+                    elements.append(inputElement)
+                    inputPedice = int(input("Inserisci pedice\n"))  # Deve essere un intero
+                    pedici.append(inputPedice)
+
+                perc = calculate_percentual_composition(pedici, elements)
+
+                for i, value in enumerate(perc):
+                    print(f"L'elemento {elements[i]} ha una composizione percentuale di {value:.2f}%")
+
+            except ValueError:
+                print("Errore: inserire un valore numerico valido!")
+            except Exception as e:
+                print(f"Errore inatteso: {e}")
+
+        elif scelta == "7":
             confirm_exit = input("Sei sicuro di voler uscire? (S/N): ").strip().upper()
             if confirm_exit == "S":
                 print("Uscita dal programma...")
