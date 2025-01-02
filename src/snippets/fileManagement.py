@@ -14,7 +14,7 @@ def read_file_chemical_element(element_name):
     return atomic_masses
 
 def read_file_element_symbols(element_name):
-    atomic_masses = None  
+    symbols = None  
     FILENAME="data/element_symbols.txt"
 
     with open(FILENAME, "r") as infile:
@@ -22,6 +22,6 @@ def read_file_element_symbols(element_name):
         for row in csvReader:
             row = row[0].split(":")  
             if row[0].strip() == element_name:  
-                atomic_masses = float(row[1].strip()) 
+                symbols = row[1].strip()
                 break  
-    return atomic_masses
+    return symbols

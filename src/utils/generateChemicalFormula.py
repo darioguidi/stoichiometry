@@ -1,4 +1,5 @@
+from snippets.fileManagement import read_file_element_symbols
 
 def generateFormula(chemical_element):
-    FILENAME="element_symbols.txt"
-    
+    symbols=read_file_element_symbols(chemical_element)
+    return symbols 
