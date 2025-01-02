@@ -1,6 +1,7 @@
 from calculation.molecularMass import calculate_molecular_mass
 from calculation.molarMass import calculate_molar_mass
 from calculation.moliNumber import calculate_moli_number
+from calculation.chemicalComposition import calculate_chemical_composition
 
 def application():
     while True:
@@ -8,6 +9,8 @@ def application():
         print("1. Calcola massa molecolare")
         print("2. Calcola numero di moli")
         print("3. Funzione 3")
+        print("4. Uscita")
+        print("4. Uscita")
         print("4. Uscita")
         
         # Prendi la scelta dell'utente
@@ -75,8 +78,25 @@ def application():
                 print("Errore: inserire un valore numerico valido!")
             except Exception as e:
                 print(f"Errore inaspettato: {e}")
-        
-        elif scelta == "4":
+
+        elif scelta=="4":
+            try:
+                elements=[]
+                compositions=[]
+                inputUtente=int(input("Da quanti elementi è composto il tuo composto?\n"))
+                for i in range(inputUtente):
+                    inputElement=input("Inserisci elemento\n")
+                    elements.append(inputElement)
+                    inputComposition=float(input("Inserisci composizione in percentuale del elemento\n"))
+                    compositions.append(inputComposition)
+                formula=calculate_chemical_composition(elements, compositions)
+                print(formula)
+            except ValueError:
+                print("Errore: inserire un valore numerico valido!")
+            except Exception as e:
+                print(e)
+            
+        elif scelta == "8":
             confirm_exit = input("Sei sicuro di voler uscire? (S/N): ").strip().upper()
             if confirm_exit == "S":
                 print("Uscita dal programma...")
