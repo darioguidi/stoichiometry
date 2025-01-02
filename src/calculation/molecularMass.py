@@ -25,4 +25,4 @@ def calculate_molecular_mass(stoichiometric_coefficients, chemical_element):
         Pa = stoichiometric_coefficients[i] * atomic_masses[i]
         Pm += Pa
 
-    return f"Massa molecolare: {Pm} e formula molecolare: {formula}"
+    return Pm
